@@ -160,7 +160,7 @@ private:
 
 		auto stages() const -> Stages final
 		{
-			return Stage::PostOperational;
+			return Stage::Operational | Stage::PostOperational;
 		}
 
 		auto operational(const process::ExecutionContext &context) -> void final;
