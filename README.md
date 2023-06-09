@@ -35,16 +35,16 @@ cmake --build . --target docs
 
 This will generate HTML documentation in the subdirectory *docs/html*.
 
-## Xentara Microservice Templates
+## Xentara Skill Element Templates
 
-*(See [Microservices](https://docs.xentara.io/xentara/xentara_microservices.html) in the [Xentara documentation](https://docs.xentara.io/xentara/))*
+*(See [Skill Elements](https://docs.xentara.io/xentara/xentara_skills.html#xentara_skill_elements) in the [Xentara documentation](https://docs.xentara.io/xentara/))*
 
 ### Client Template
 
 [src/TemplateClient.hpp](src/TemplateClient.hpp)  
 [src/TemplateClient.cpp](src/TemplateClient.cpp)
 
-The client microservice template provides template code for services that do not require a persistent connection to the service instance.
+The client skill element template provides template code for services that do not require a persistent connection to the service instance.
 Such services are either entirely stateless, or require a single initialization and deinitialization call. This includes web services
 that use the HTTP or HTTPs protocols, for example.
 
@@ -53,16 +53,16 @@ that use the HTTP or HTTPs protocols, for example.
 [src/TemplateTransaction.hpp](src/TemplateTransaction.hpp)  
 [src/TemplateTransaction.cpp](src/TemplateTransaction.cpp)
 
-The transaction microservice template provides template code for transactions that accumulate data over a period of time, and only send it to the service instance
+The transaction skill element template provides template code for transactions that accumulate data over a period of time, and only send it to the service instance
 at greater intervals.
 
 The template code has the following features:
 
-- The microservice publishes a [Xentara task](https://docs.xentara.io/xentara/xentara_element_members.html#xentara_tasks) called *collect*,
+- The skill element publishes a [Xentara task](https://docs.xentara.io/xentara/xentara_element_members.html#xentara_tasks) called *collect*,
   which collect a set of records and buffers it for future sending.
-- The microservice publishes a [Xentara task](https://docs.xentara.io/xentara/xentara_element_members.html#xentara_tasks) called *send*,
+- The skill element publishes a [Xentara task](https://docs.xentara.io/xentara/xentara_element_members.html#xentara_tasks) called *send*,
   which sends the collected records to the service instance.
 - The *send* task can be executed at greater intervals than the *collect* task, to collect multiple sets of records and send them to the
   service instance as a batch
-- The microservice publishes [Xentara events](https://docs.xentara.io/xentara/xentara_element_members.html#xentara_events) to signal when
+- The skill element publishes [Xentara events](https://docs.xentara.io/xentara/xentara_element_members.html#xentara_events) to signal when
   a record batch was sent, or if a send error occurred.
